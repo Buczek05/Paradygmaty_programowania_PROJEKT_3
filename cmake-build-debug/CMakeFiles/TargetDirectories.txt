@@ -1,0 +1,3 @@
+/Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3/cmake-build-debug/CMakeFiles/Paradygmaty_programowania_PROJECT_3.dir
+/Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
