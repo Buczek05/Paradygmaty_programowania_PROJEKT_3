@@ -235,12 +235,12 @@ void edit_times(Repair *repair){
 }
 
 void edit_statuses(Repair *repair){
-    printf("1. Oznacz jako rozpoczęta\n");
-    printf("2. Oznacz jako nie rozpoczęta\n");
-    printf("3. Oznacz jako zakończona\n");
-    printf("4. Oznacz jako nie zakończona\n");
-    printf("5. Oznacz jako zapłacona\n");
-    printf("6. Oznacz jako nie zapłacona\n");
+    printf("1. Oznacz jako rozpoczeta\n");
+    printf("2. Oznacz jako nie rozpoczeta\n");
+    printf("3. Oznacz jako zakonczona\n");
+    printf("4. Oznacz jako nie zakonczona\n");
+    printf("5. Oznacz jako zaplacona\n");
+    printf("6. Oznacz jako nie zaplacona\n");
     printf("0. Powrot\n");
     int choice;
     scanf("%d", &choice);

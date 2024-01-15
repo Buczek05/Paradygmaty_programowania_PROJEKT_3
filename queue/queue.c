@@ -101,12 +101,14 @@ QueueManager *load_queue(char *file_name, void *(*load_data)(FILE *file)){
     FILE *file = fopen(file_name, "r");
     QueueManager *queueManager = init_queue_manager();
     if (file == NULL){
+        printf("blad otwarcia pliku\n");
         return queueManager;
     }
     void *data = load_data(file);
     while (data != NULL && !feof(file)){
         add_to_queue_as_last(queueManager, data);
         data = load_data(file);
+        printf("Wczytano dane\n");
     }
     fclose(file);
     return queueManager;

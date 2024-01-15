@@ -24,6 +24,7 @@ void print_car(void *data) {
     printf("Model: %s\n", car->model);
     printf("Year: %d\n", car->year);
     printf("Registration number: %s\n", car->registration_number);
+    printf("\n");
 }
 
 void free_car(void *data) {
