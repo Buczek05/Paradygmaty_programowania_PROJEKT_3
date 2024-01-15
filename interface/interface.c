@@ -1,8 +1,8 @@
 #include "interface.h"
 
-char cars_file[MAX_STRING_LENGTH] = "data_cars";
-char workplaces_file[MAX_STRING_LENGTH] = "data_workplaces";
-char repairs_file[MAX_STRING_LENGTH] = "data_repairs";
+char cars_file[MAX_STRING_LENGTH] = "data_cars.data";
+char workplaces_file[MAX_STRING_LENGTH] = "data_workplaces.data";
+char repairs_file[MAX_STRING_LENGTH] = "data_repairs.data";
 
 void init_interface() {
     cars_manager = load_queue(cars_file, load_car);
