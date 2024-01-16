@@ -11,5 +11,8 @@
 #include <string.h>
 
 char *get_string_from_console();
+int get_int_from_console();
+int get_unsigned_long_int_from_console();
+float get_float_from_console();
 
 #endif //PARADYGMATY_PROGRAMOWANIA_PROJECT_3_COMMON_H
