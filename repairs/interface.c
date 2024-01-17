@@ -8,8 +8,8 @@ void repairs_menu(){
         printf("4. Wyswietl naprawy\n");
         printf("5. Wyszukaj naprawe\n");
         printf("0. Powrot\n");
-        scanf("%d", &choice);
-        getchar();
+        printf("Wybor: ");
+        choice = get_int_from_console();
         switch(choice){
             case 1:
                 add_repair();
@@ -41,15 +41,13 @@ void add_repair(){
     long int add_date = time(NULL);
     float parts_cost, work_cost;
     printf("Podaj ID samochodu: ");
-    scanf("%ld", &car_id);
-    getchar();
+    car_id = get_unsigned_long_int_from_console();
     if (search_queue(cars_manager, &car_id, search_car_by_id)->found == 0) {
         printf("Nie znaleziono samochodu!\n");
         return;
     }
     printf("Podaj ID warsztatu: ");
-    scanf("%ld", &workplace_id);
-    getchar();
+    workplace_id = get_unsigned_long_int_from_console();
     if (search_queue(workplaces_manager, &workplace_id, search_workplace_by_id)->found == 0) {
         printf("Nie znaleziono warsztatu!\n");
         return;
@@ -59,11 +57,9 @@ void add_repair(){
     printf("Podaj opis: ");
     strcpy(description, get_string_from_console());
     printf("Podaj koszt czesci: ");
-    scanf("%f", &parts_cost);
-    getchar();
+    parts_cost = get_float_from_console();
     printf("Podaj koszt pracy: ");
-    scanf("%f", &work_cost);
-    getchar();
+    work_cost = get_float_from_console();
     Repair *repair = create_repair(id, car_id, workplace_id, title, description, parts_cost, work_cost, add_date, 0, 0, 0, 0, 0);
     add_to_queue_as_last(repairs_manager, repair);
     printf("Dodano naprawe: \n");
@@ -72,8 +68,7 @@ void add_repair(){
 void delete_repair(){
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(repairs_manager, &id, search_repair_by_id);
     if(search_result->found){
         delete_element(repairs_manager, search_result->element, free_repair);
@@ -87,8 +82,7 @@ void delete_repair(){
 void edit_repair(){
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(repairs_manager, &id, search_repair_by_id);
     if(search_result->found){
         Repair *repair = (Repair *) search_result->element->data;
@@ -100,8 +94,8 @@ void edit_repair(){
             printf("3. Edytuj czasy\n");
             printf("4. Edytuj statusy\n");
             printf("0. Powrot\n");
-            scanf("%d", &choice);
-            getchar();
+            printf("Wybor: ");
+            choice = get_int_from_console();
             switch(choice){
                 case 1:
                     edit_information(repair);
@@ -130,14 +124,14 @@ void edit_repair(){
 }
 
 void edit_information(Repair *repair){
+    int choice, id;
     printf("1. Edytuj tytul\n");
     printf("2. Edytuj opis\n");
     printf("3. Edytuj ID samochodu\n");
     printf("4. Edytuj ID warsztatu\n");
     printf("0. Powrot\n");
-    int choice, id;
-    scanf("%d", &choice);
-    getchar();
+    printf("Wybor: ");
+    choice = get_int_from_console();
     switch(choice){
         case 1:
             printf("Podaj tytul: ");
@@ -151,8 +145,7 @@ void edit_information(Repair *repair){
             break;
         case 3:
             printf("Podaj ID samochodu: ");
-            scanf("%ld", &id);
-            getchar();
+            id = get_unsigned_long_int_from_console();
             if (search_queue(cars_manager, &id, search_car_by_id)->found == 0) {
                 printf("Nie znaleziono samochodu!\n");
                 return;
@@ -160,8 +153,7 @@ void edit_information(Repair *repair){
             break;
         case 4:
             printf("Podaj ID warsztatu: ");
-            scanf("%ld", &id);
-            getchar();
+            id = get_unsigned_long_int_from_console();
             if (search_queue(workplaces_manager, &id, search_workplace_by_id)->found == 0) {
                 printf("Nie znaleziono warsztatu!\n");
                 return;
@@ -179,19 +171,17 @@ void edit_costs(Repair *repair){
     printf("1. Edytuj koszt czesci\n");
     printf("2. Edytuj koszt pracy\n");
     printf("0. Powrot\n");
+    printf("Wybor: ");
     int choice;
-    scanf("%d", &choice);
-    getchar();
+    choice = get_int_from_console();
     switch(choice){
         case 1:
             printf("Podaj koszt czesci: ");
-            scanf("%f", &repair->parts_cost);
-            getchar();
+            repair->parts_cost = get_float_from_console();
             break;
         case 2:
             printf("Podaj koszt pracy: ");
-            scanf("%f", &repair->work_cost);
-            getchar();
+            repair->work_cost = get_float_from_console();
             break;
         case 0:
             break;
@@ -202,29 +192,26 @@ void edit_costs(Repair *repair){
 }
 
 void edit_times(Repair *repair){
+    int choice;
     printf("UWAGA - Czasy sa podawane w formacie timestamp\n");
     printf("1. Edytuj czas dodania\n");
     printf("2. Edytuj czas rozpoczecia\n");
     printf("3. Edytuj czas zakonczenia\n");
     printf("0. Powrot\n");
-    int choice;
-    scanf("%d", &choice);
-    getchar();
+    printf("Wybor: ");
+    choice = get_int_from_console();
     switch(choice){
         case 1:
             printf("Podaj czas dodania: ");
-            scanf("%ld", &repair->added_time);
-            getchar();
+            repair->added_time = get_unsigned_long_int_from_console();
             break;
         case 2:
             printf("Podaj czas rozpoczecia: ");
-            scanf("%ld", &repair->start_time);
-            getchar();
+            repair->start_time = get_unsigned_long_int_from_console();
             break;
         case 3:
             printf("Podaj czas zakonczenia: ");
-            scanf("%ld", &repair->end_time);
-            getchar();
+            repair->end_time = get_unsigned_long_int_from_console();
             break;
         case 0:
             break;
@@ -235,6 +222,7 @@ void edit_times(Repair *repair){
 }
 
 void edit_statuses(Repair *repair){
+    int choice;
     printf("1. Oznacz jako rozpoczeta\n");
     printf("2. Oznacz jako nie rozpoczeta\n");
     printf("3. Oznacz jako zakonczona\n");
@@ -242,9 +230,8 @@ void edit_statuses(Repair *repair){
     printf("5. Oznacz jako zaplacona\n");
     printf("6. Oznacz jako nie zaplacona\n");
     printf("0. Powrot\n");
-    int choice;
-    scanf("%d", &choice);
-    getchar();
+    printf("Wybor: ");
+    choice = get_int_from_console();
     switch(choice){
         case 1:
             repair->is_started = 1;
@@ -290,25 +277,22 @@ void search_repair(){
         printf("3. Szukaj po ID Warsztatu\n");
         printf("4. Szukaj po Nazwie\n");
         printf("0. Powrot\n");
-        scanf("%d", &choice);
-        getchar();
+        printf("Wybor: ");
+        choice = get_int_from_console();
         switch (choice) {
             case 1:
                 printf("Podaj ID: ");
-                scanf("%d", &id);
-                getchar();
+                id = get_unsigned_long_int_from_console();
                 multi_search_result = multi_search_queue(repairs_manager, &id, search_repair_by_id);
                 break;
             case 2:
                 printf("Podaj ID Pojazdu: ");
-                scanf("%d", &id);
-                getchar();
+                id = get_unsigned_long_int_from_console();
                 multi_search_result = multi_search_queue(repairs_manager, &id, search_repair_by_car_id);
                 break;
             case 3:
                 printf("Podaj ID Warsztatu: ");
-                scanf("%d", &id);
-                getchar();
+                id = get_unsigned_long_int_from_console();
                 multi_search_result = multi_search_queue(repairs_manager, &id, search_repair_by_workplace_id);
                 break;
             case 4:

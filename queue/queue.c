@@ -46,6 +46,10 @@ void add_to_queue_as_first(QueueManager *queueManager, void *data){
 
 void print_queue(QueueManager *queueManager, void (*print_data)(void *data)){
     QueueElement *queue = queueManager->first_element;
+    if (queue == NULL){
+        printf("Nie znaleziono danych!\n");
+        return;
+    }
     while (queue != NULL){
         print_data(queue->data);
         queue = queue->next;
