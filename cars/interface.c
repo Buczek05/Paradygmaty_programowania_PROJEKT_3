@@ -10,8 +10,7 @@ void car_menu(){
     printf("5. Wyszukaj samochod\n");
     printf("0. Wroc\n");
     printf("Wybor: ");
-    scanf("%d", &choice);
-    getchar();
+    choice = get_int_from_console();
     switch (choice) {
         case 1:
             add_car();
@@ -47,8 +46,7 @@ void add_car(){
     printf("Podaj model: ");
     strcpy(model, get_string_from_console());
     printf("Podaj rok produkcji: ");
-    scanf("%d", &year);
-    getchar();
+    year = get_int_from_console();
     printf("Podaj numer rejestracyjny: ");
     strcpy(registration_number, get_string_from_console());
     unsigned long int id = get_next_id(cars_manager, get_car_id);
@@ -60,8 +58,7 @@ void add_car(){
 void delete_car(){
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(cars_manager, &id, search_car_by_id);
     if (search_result->found) {
         delete_element(cars_manager, search_result->element, free_car);
@@ -75,8 +72,7 @@ void delete_car(){
 void edit_car(){
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(cars_manager, &id, search_car_by_id);
     if (search_result->found) {
         int choice;
@@ -88,8 +84,8 @@ void edit_car(){
             printf("3. Rok produkcji\n");
             printf("4. Numer rejestracyjny\n");
             printf("0. Wroc\n");
-            scanf("%d", &choice);
-            getchar();
+            printf("Wybor: ");
+            choice = get_int_from_console();
             switch (choice) {
                 case 1:
                     printf("Podaj marke: ");
@@ -105,8 +101,7 @@ void edit_car(){
                     break;
                 case 3:
                     printf("Podaj rok produkcji: ");
-                    scanf("%d", &((Car *) search_result->element->data)->year);
-                    getchar();
+                    ((Car *) search_result->element->data)->year = get_int_from_console();
                     break;
                 case 4:
                     printf("Podaj numer rejestracyjny: ");
@@ -141,8 +136,8 @@ void search_car(){
     printf("4. Rok produkcji\n");
     printf("5. Numer rejestracyjny\n");
     printf("0. Wroc\n");
-    scanf("%d", &choice);
-    getchar();
+    printf("Wybor: ");
+    choice = get_int_from_console();
     MultiSearchResult *multi_search_result = NULL;
     unsigned long int id;
     int year;
@@ -150,8 +145,7 @@ void search_car(){
     switch (choice) {
         case 1:
             printf("Podaj ID: ");
-            scanf("%ld", &id);
-            getchar();
+            id = get_unsigned_long_int_from_console();
             multi_search_result = multi_search_queue(cars_manager, &id, search_car_by_id);
             break;
         case 2:
@@ -166,8 +160,7 @@ void search_car(){
             break;
         case 4:
             printf("Podaj rok produkcji: ");
-            scanf("%d", &year);
-            getchar();
+            year = get_int_from_console();
             multi_search_result = multi_search_queue(cars_manager, &year, search_car_by_year);
             break;
         case 5:

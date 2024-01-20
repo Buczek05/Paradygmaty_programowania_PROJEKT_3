@@ -11,7 +11,7 @@
 
 QueueManager *cars_manager, *workplaces_manager, *repairs_manager;
 
-void init_interface();
+void init_interface(int test_mode);
 void save();
 void main_menu();
 

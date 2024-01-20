@@ -20,10 +20,10 @@ Car *create_car(unsigned long int id, char *brand, char *model, int year, char *
 void print_car(void *data) {
     Car *car = (Car *) data;
     printf("ID: %ld\n", car->id);
-    printf("Brand: %s\n", car->brand);
+    printf("Marka: %s\n", car->brand);
     printf("Model: %s\n", car->model);
-    printf("Year: %d\n", car->year);
-    printf("Registration number: %s\n", car->registration_number);
+    printf("Rok produkcji: %d\n", car->year);
+    printf("Numer rejestracyjny: %s\n", car->registration_number);
     printf("\n");
 }
 

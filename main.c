@@ -2,8 +2,28 @@
 #include "interface/interface.h"
 
 int main() {
-
-    init_interface();
-    main_menu();
-    return 0;
+    int choice;
+    do{
+        printf("Witaj w programie do zarzadzania warsztatem!\nWybierz jedna z opcji:\n");
+        printf("1 - Tryb testowy, program wczyta przygotowane pliki i nie będzie można ich nadpisać\n");
+        printf("9 - Tryb normalny, program wczyta ostatnie zapisane dane\n");
+        printf("0 - Wyjście\n");
+        printf("Wybor: ");
+        choice = get_int_from_console();
+        switch (choice) {
+            case 1:
+                init_interface(1);
+                main_menu();
+                break;
+            case 9:
+                init_interface(0);
+                main_menu();
+                break;
+            case 0:
+                return 0;
+            default:
+                printf("Nie ma takiej opcji\n");
+                break;
+        }
+    }while (choice != 0);
 }

@@ -10,8 +10,7 @@ void workplaces_menu() {
         printf("5. Wyszukaj warsztat\n");
         printf("0. Powrot\n");
         printf("Wybor: ");
-        scanf("%d", &choice);
-        getchar();
+        choice = get_int_from_console();
         switch (choice) {
             case 1:
                 add_workplace();
@@ -49,8 +48,7 @@ void add_workplace() {
 void delete_workplace() {
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(workplaces_manager, &id, search_workplace_by_id);
     if (search_result->found) {
         delete_element(workplaces_manager, search_result->element, free_workplace);
@@ -64,8 +62,7 @@ void delete_workplace() {
 void edit_workplace() {
     unsigned long int id;
     printf("Podaj ID: ");
-    scanf("%ld", &id);
-    getchar();
+    id = get_unsigned_long_int_from_console();
     SearchResult *search_result = search_queue(workplaces_manager, &id, search_workplace_by_id);
     if (search_result->found) {
         Workplace *workplace = (Workplace *) search_result->element->data;
