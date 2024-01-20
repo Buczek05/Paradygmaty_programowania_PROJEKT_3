@@ -5,9 +5,9 @@ int main() {
     int choice;
     do{
         printf("Witaj w programie do zarzadzania warsztatem!\nWybierz jedna z opcji:\n");
-        printf("1 - Tryb testowy, program wczyta przygotowane pliki i nie będzie można ich nadpisać\n");
+        printf("1 - Tryb testowy, program wczyta przygotowane pliki i nie bedzie mozna ich nadpisac\n");
         printf("9 - Tryb normalny, program wczyta ostatnie zapisane dane\n");
-        printf("0 - Wyjście\n");
+        printf("0 - Wyjscie\n");
         printf("Wybor: ");
         choice = get_int_from_console();
         switch (choice) {
