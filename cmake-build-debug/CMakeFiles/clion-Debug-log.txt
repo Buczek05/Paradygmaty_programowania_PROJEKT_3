@@ -1,4 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3" -B "/Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3/cmake-build-debug"
 -- Configuring done (0.0s)
--- Generating done (0.0s)
+-- Generating done (0.1s)
 -- Build files have been written to: /Users/bukowski/Library/Mobile Documents/com~apple~CloudDocs/Studia/Paradygmaty Programowania/Paradygmaty programowania PROJECT 3/cmake-build-debug

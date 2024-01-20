@@ -23,7 +23,7 @@ typedef struct REPAIR {
 } Repair;
 
 Repair *create_repair(unsigned long int id, unsigned long int car_id, unsigned long int workplace_id, char *title, char *description, float parts_cost, float work_cost, long int added_time, long int start_time, long int end_time, int is_started, int is_done, int is_paid);
-char *convert_date(long int timestamp);
+char *convert_date(unsigned long int timestamp);
 float get_total_cost(Repair *repair);
 void print_repair(void *data);
 void free_repair(void *data);

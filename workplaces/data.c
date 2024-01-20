@@ -11,7 +11,7 @@ Workplace *create_workplace(unsigned long int id, char *name) {
 void print_workplace(void *data) {
     Workplace *workplace = (Workplace *) data;
     printf("ID: %ld\n", workplace->id);
-    printf("Name: %s\n", workplace->name);
+    printf("Nazwa: %s\n", workplace->name);
     printf("\n");
 }
 
