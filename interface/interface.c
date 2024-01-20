@@ -28,7 +28,12 @@ void main_menu() {
         printf("1. Pojazdy\n");
         printf("2. Warsztaty\n");
         printf("3. Naprawy\n");
-        printf("0. Zapisz i wyjdź\n");
+        if (test_mode) {
+            printf("0. Wyjdz\n");
+        }
+        else{
+            printf("0. Zapisz i wyjdz\n");
+        }
         printf("Wybor: ");
         choice = get_int_from_console();
         switch (choice) {

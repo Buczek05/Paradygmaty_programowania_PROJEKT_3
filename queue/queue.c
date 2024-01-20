@@ -109,11 +109,9 @@ QueueManager *load_queue(char *file_name, void *(*load_data)(FILE *file)){
         return queueManager;
     }
     void *data = load_data(file);
-    printf("Otwarto plik\n");
     while (data != NULL && !feof(file)){
         add_to_queue_as_last(queueManager, data);
         data = load_data(file);
-        printf("Wczytano dane\n");
     }
     fclose(file);
     return queueManager;

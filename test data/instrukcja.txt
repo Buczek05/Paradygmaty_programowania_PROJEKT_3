@@ -1,0 +1,1 @@
+Wgrać obok pliku wykonywalnego, jest to zapis do pliku binarnego, przygotowany na MACOS-X

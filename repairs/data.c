@@ -33,23 +33,23 @@ float get_total_cost(Repair *repair) {
 void print_repair(void *data) {
     Repair *repair = (Repair *) data;
     printf("ID: %ld\n", repair->id);
-    printf("Car ID: %ld\n", repair->car_id);
-    printf("Workplace ID: %ld\n", repair->workplace_id);
-    printf("Title: %s\n", repair->title);
-    printf("Description: %s\n", repair->description);
-    printf("Parts cost: %.2f\n", repair->parts_cost);
-    printf("Work cost: %.2f\n", repair->work_cost);
-    printf("Total cost: %.2f\n", get_total_cost(repair));
-    printf("Added time: %s\n", convert_date(repair->added_time));
-    printf("Start time: %s\n", convert_date(repair->start_time));
-    printf("End time: %s\n", convert_date(repair->end_time));
-    printf("Is started: %d\n", repair->is_started);
-    printf("Is done: %d\n", repair->is_done);
-    printf("Is paid: %d\n", repair->is_paid);
+    printf("Pojazd ID: %ld\n", repair->car_id);
+    printf("Stanowisko pracy ID: %ld\n", repair->workplace_id);
+    printf("Tytul: %s\n", repair->title);
+    printf("Opis: %s\n", repair->description);
+    printf("Koszt czesci: %.2f\n", repair->parts_cost);
+    printf("Koszt pracy: %.2f\n", repair->work_cost);
+    printf("Calkowity koszt: %.2f\n", get_total_cost(repair));
+    printf("Czas dodania: %s\n", convert_date(repair->added_time));
+    printf("Czas rozpoczecia: %s\n", convert_date(repair->start_time));
+    printf("Czas zakonczenia: %s\n", convert_date(repair->end_time));
+    printf("Czy rozpoczeta: %d\n", repair->is_started);
+    printf("Czy skonczona: %d\n", repair->is_done);
+    printf("Czy zaplacona: %d\n", repair->is_paid);
     printf("\n");
 }
 
-char *convert_date(long int timestamp) {
+char *convert_date(unsigned long int timestamp) {
     if (timestamp == 0) {
         return "-";
     }

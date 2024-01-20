@@ -11,7 +11,7 @@ int get_int_from_console() {
     int number, result;
     do{
         result = scanf("%d", &number);
-        getchar();
+        while (getchar() != '\n');
         if (result != 1) {
             printf("Podaj liczbe!\n");
         }
@@ -24,7 +24,7 @@ int get_unsigned_long_int_from_console() {
     int result;
     do{
         result = scanf("%lu", &number);
-        getchar();
+        while (getchar() != '\n');
         if (result != 1) {
             printf("Podaj liczbe!\n");
         }
@@ -36,7 +36,7 @@ float get_float_from_console() {
     float number, result;
     do{
         result = scanf("%f", &number);
-        getchar();
+        while (getchar() != '\n');
         if (result != 1) {
             printf("Podaj liczbe!\n");
         }
